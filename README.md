@@ -7,19 +7,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cs_g9p1
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cs_g9p1
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `cs_g9p1` DEFAULT CHARACTER SET utf8 ;
+USE `cs_g9p1` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`coach`
+-- Table `cs_g9p1`.`coach`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`coach` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`coach` (
   `coachid` INT NOT NULL,
   `coach_f_name` VARCHAR(45) NULL,
   `coach_l_name` VARCHAR(45) NULL,
@@ -30,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`team`
+-- Table `cs_g9p1`.`team`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`team` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`team` (
   `teamid` INT NOT NULL,
   `team_name` VARCHAR(45) NULL,
   `team_age_range` VARCHAR(45) NULL,
@@ -44,21 +44,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`team` (
   INDEX `fk_team_team1_idx` (`team_teamid` ASC) VISIBLE,
   CONSTRAINT `fk_team_coach1`
     FOREIGN KEY (`coach_coachid`)
-    REFERENCES `mydb`.`coach` (`coachid`)
+    REFERENCES `cs_g9p1`.`coach` (`coachid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_team_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`player`
+-- Table `cs_g9p1`.`player`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`player` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`player` (
   `playerid` INT NOT NULL,
   `player_f_name` VARCHAR(45) NULL,
   `player_l_name` VARCHAR(45) NULL,
@@ -70,16 +70,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`player` (
   INDEX `fk_player_team1_idx` (`team_teamid` ASC) VISIBLE,
   CONSTRAINT `fk_player_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`facility`
+-- Table `cs_g9p1`.`facility`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`facility` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`facility` (
   `facilityid` INT NOT NULL,
   `facility_name` VARCHAR(45) NULL,
   `facility_type` VARCHAR(45) NULL,
@@ -89,9 +89,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rental of facility`
+-- Table `cs_g9p1`.`rental of facility`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`rental of facility` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`rental of facility` (
   `fac_rentid` INT NOT NULL,
   `book_time` DATETIME NULL,
   `book_date` DATE NULL,
@@ -104,21 +104,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rental of facility` (
   INDEX `fk_rental of facility_team1_idx` (`team_teamid` ASC) VISIBLE,
   CONSTRAINT `fk_facility registration_facility1`
     FOREIGN KEY (`facility_facilityid`)
-    REFERENCES `mydb`.`facility` (`facilityid`)
+    REFERENCES `cs_g9p1`.`facility` (`facilityid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental of facility_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`event`
+-- Table `cs_g9p1`.`event`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`event` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`event` (
   `event_id` INT NOT NULL,
   `event_name` VARCHAR(45) NULL,
   `event_date` VARCHAR(45) NULL,
@@ -130,16 +130,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`event` (
   INDEX `fk_event_rental of facility1_idx` (`rental of facility_fac_rentid` ASC) VISIBLE,
   CONSTRAINT `fk_event_rental of facility1`
     FOREIGN KEY (`rental of facility_fac_rentid`)
-    REFERENCES `mydb`.`rental of facility` (`fac_rentid`)
+    REFERENCES `cs_g9p1`.`rental of facility` (`fac_rentid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`staff`
+-- Table `cs_g9p1`.`staff`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`staff` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`staff` (
   `staffid` INT NOT NULL,
   `staff_name` VARCHAR(45) NULL,
   `staff_contact_info` VARCHAR(45) NULL,
@@ -149,16 +149,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`staff` (
   INDEX `fk_staff_team1_idx` (`team_teamid` ASC) VISIBLE,
   CONSTRAINT `fk_staff_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`sponser`
+-- Table `cs_g9p1`.`sponser`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`sponser` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`sponser` (
   `sponserid` INT NOT NULL,
   `sponser_f_name` VARCHAR(45) NULL,
   `sponser_l_name` VARCHAR(45) NULL,
@@ -168,9 +168,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`donation`
+-- Table `cs_g9p1`.`donation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`donation` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`donation` (
   `donationid` INT NOT NULL,
   `donor_f_name` VARCHAR(45) NULL,
   `donor_l_name` VARCHAR(45) NULL,
@@ -183,21 +183,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`donation` (
   INDEX `fk_donation_team1_idx` (`team_teamid` ASC) VISIBLE,
   CONSTRAINT `fk_donation_sponser1`
     FOREIGN KEY (`sponser_sponserid`)
-    REFERENCES `mydb`.`sponser` (`sponserid`)
+    REFERENCES `cs_g9p1`.`sponser` (`sponserid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_donation_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`injury`
+-- Table `cs_g9p1`.`injury`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`injury` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`injury` (
   `injuryid` INT NOT NULL,
   `injury_date` VARCHAR(45) NULL,
   `injury_body_part` VARCHAR(45) NULL,
@@ -207,16 +207,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`injury` (
   INDEX `fk_injury_player1_idx` (`player_playerid` ASC) VISIBLE,
   CONSTRAINT `fk_injury_player1`
     FOREIGN KEY (`player_playerid`)
-    REFERENCES `mydb`.`player` (`playerid`)
+    REFERENCES `cs_g9p1`.`player` (`playerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`equipment`
+-- Table `cs_g9p1`.`equipment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`equipment` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`equipment` (
   `equipmentid` INT NOT NULL,
   `equipment_name` VARCHAR(45) NULL,
   `equipment_quantity` VARCHAR(45) NULL,
@@ -227,9 +227,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`event registration`
+-- Table `cs_g9p1`.`event registration`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`event registration` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`event registration` (
   `event_event_id` INT NOT NULL,
   `team_teamid` INT NOT NULL,
   PRIMARY KEY (`event_event_id`, `team_teamid`),
@@ -237,21 +237,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`event registration` (
   INDEX `fk_event_has_team_event_idx` (`event_event_id` ASC) VISIBLE,
   CONSTRAINT `fk_event_has_team_event`
     FOREIGN KEY (`event_event_id`)
-    REFERENCES `mydb`.`event` (`event_id`)
+    REFERENCES `cs_g9p1`.`event` (`event_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_event_has_team_team1`
     FOREIGN KEY (`team_teamid`)
-    REFERENCES `mydb`.`team` (`teamid`)
+    REFERENCES `cs_g9p1`.`team` (`teamid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`equipment checkout`
+-- Table `cs_g9p1`.`equipment checkout`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`equipment checkout` (
+CREATE TABLE IF NOT EXISTS `cs_g9p1`.`equipment checkout` (
   `equipment_equipmentid` INT NOT NULL,
   `player_playerid` INT NOT NULL,
   `checkoutid` VARCHAR(45) NOT NULL,
@@ -262,12 +262,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`equipment checkout` (
   PRIMARY KEY (`checkoutid`),
   CONSTRAINT `fk_equipment_has_player_equipment1`
     FOREIGN KEY (`equipment_equipmentid`)
-    REFERENCES `mydb`.`equipment` (`equipmentid`)
+    REFERENCES `cs_g9p1`.`equipment` (`equipmentid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_equipment_has_player_player1`
     FOREIGN KEY (`player_playerid`)
-    REFERENCES `mydb`.`player` (`playerid`)
+    REFERENCES `cs_g9p1`.`player` (`playerid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
