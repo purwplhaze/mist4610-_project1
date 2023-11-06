@@ -29,3 +29,4 @@ The team's staff, represented by the 'staff' entity, comprises the individuals w
 
 Injuries sustained by players are recorded through the 'injury' entity. Each injury has a unique 'injuryid', a type, a severity, the affected body part, and a date of occurrence. Many players can sustain the same injury which is represented by the one-to-many relationship between 'injury' and 'player'.
 
+![Group Project Data Model Rough Draft 12](https://github.com/purwplhaze/mist4610_project1/assets/148249080/b719ba50-1d17-4e61-b73d-4cd5b47884e2)
