@@ -10,7 +10,7 @@
 5. John Hulsey
 
 # Problem Description
-The task at hand is to model and build a relational database for the general workings of a football team. The central entity in the model is the 'team' entity. The team operates in conjunction with player, staff, coach, etc... in order to track equipment, events, facilities, and donaitons. We are interested in modeling these relationships, generating samlple data, and populating the entities and their attributes with sample data. We are also interested in performing functioning queries on the data so that we can generate reports and build insight about operations within the footaball team.
+The task at hand is to model and build a relational database for the general workings of a football team. The central entity in the model is the 'team' entity. The team operates in conjunction with player, staff, coach, etc... in order to track equipment, events, facilities, and donatons. We are interested in modeling these relationships, generating samlple data, and populating the entities and their attributes with sample data. We are also interested in performing functioning queries on the data so that we can generate reports and build insight about operations within the footaball team.
 
 # Data Model
 Our model is based on the structure of a hypothetical football team. At the heart of the data model lies the 'player' entity, representing the individuals who participate in the football team activities. Each player is identified by a unique 'playerid' and holds attributes such as their name, date of birth, and contact information. Players are often associated with specific teams, establishing a one-to-many relationship between the 'player' and 'team' entities.
