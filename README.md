@@ -1,4 +1,4 @@
-# mist4610_project1
+# MIST4610_project1
 
 # Team Members
 1. John Hulsey
