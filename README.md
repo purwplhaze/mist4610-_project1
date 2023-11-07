@@ -38,4 +38,28 @@ Overall, this football team database is designed to comprehensively represent an
 ![project1_model](https://github.com/purwplhaze/mist4610_project1/assets/148249080/689f3f19-eb51-4e6c-9147-0c7bc3c6946d)
 
 # Data Dictionary
-![Screenshot 2023-11-07 at 12 56 15 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/99fcf4e2-57f4-4ddf-9aa1-81a0bd84667f)
+![Screenshot 2023-11-07 at 12 56 34 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/1eb363f5-3d52-4f7c-9ee3-f41c403d2428)
+
+![Screenshot 2023-11-07 at 12 57 21 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/a1e044e3-de85-4c12-8b80-e358c739294f)
+
+![Screenshot 2023-11-07 at 12 57 33 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/60528420-6ece-4f74-92fd-df8e78855b93)
+
+![Screenshot 2023-11-07 at 12 58 54 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/0362cbcb-48e0-4134-9fef-0411f4154b36)
+
+![Screenshot 2023-11-07 at 12 59 14 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/c5596454-aadc-485e-b67f-33de52033296)
+
+![Screenshot 2023-11-07 at 12 59 06 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/18fcadc3-d25a-487d-b849-84b38ecaef84)
+
+![Screenshot 2023-11-07 at 12 59 40 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/3505ecaa-a985-4089-8d85-249b3601473d)
+
+![Screenshot 2023-11-07 at 12 59 27 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/46848010-25ab-4b27-af28-bb04963fdeba)
+
+![Screenshot 2023-11-07 at 12 57 43 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/c12eb111-9d7b-45ff-9a66-16acb3f4c9c5)
+
+![Screenshot 2023-11-07 at 12 57 54 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/27d93c9d-e4d5-4825-8ff1-4b0307e3dc9b)
+
+![Screenshot 2023-11-07 at 12 58 40 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/b4964f17-dad2-48a4-a9b7-e6046d6494f6)
+
+![Screenshot 2023-11-07 at 12 56 15 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/6587a198-e53e-420b-9d81-e57d4b9e70ff)
+
+![Screenshot 2023-11-07 at 12 56 25 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/4b776c94-09cd-4acf-83ec-82a34adbb244)
