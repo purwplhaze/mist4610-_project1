@@ -20,7 +20,7 @@ MIST 4610 9:35-10:50 Group 9
    
    REPO: https://github.com/Justn7ime/effective-parakeet
    
-9. Hayes Herzog | @purpwlhaze
+9. Hayes Herzog | @purwplhaze
     
    REPO: https://github.com/purwplhaze/mist4610_project1
    
