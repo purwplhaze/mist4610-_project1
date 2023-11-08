@@ -4,7 +4,7 @@
 1. John Hulsey
 2. Jack Mathison
 3. Carson Whitt
-4. Marco Young
+4. Justin Sullivan
 5. Hayes Herzog
 
 # Problem Description
@@ -61,3 +61,8 @@ Overall, this football team database is designed to comprehensively represent an
 ![Screenshot 2023-11-07 at 12 56 15 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/6587a198-e53e-420b-9d81-e57d4b9e70ff)
 
 ![Screenshot 2023-11-07 at 12 56 25 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/4b776c94-09cd-4acf-83ec-82a34adbb244)
+
+# Queries
+![Screenshot 2023-11-07 at 6 53 54 PM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/6460027a-cda1-4f0a-827e-49dc2a87cbc0)
+
+1. 
