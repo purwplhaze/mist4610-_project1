@@ -73,7 +73,7 @@ From injury Join specific_injury On injuryid = injury_injuryid Join player On
     player_playerid = playerid Join team On team_teamid = teamid
 Where injury_severity RegExp "4-6 Months|6-8 Months|6-12 Months"
 Group By team_name, teamid
-Having Count(playerid) >= 2
+Having Count(playerid) >= 2;
 
 + -------------- + ----------- +
 | team_name      | teamid      |
@@ -93,7 +93,7 @@ Query 2 reports the information regarding renter information when booking an eve
 From rental_of_facility Join event On event_id = event_event_id
 Where event_type RegExp 'Game'
 And event_result RegExp 'Win'
-Order By book_date Desc
+Order By book_date Desc;
 
 + ------------- + ---------------- + ------------------------ + -------------- +
 | event_id      | renter_name      | renter_contact_info      | book_date      |
@@ -113,7 +113,7 @@ From equipment Join equipment_checkout On equipmentid = equipment_equipmentid
 Join player On player_playerid = playerid
 Where equipment_equipmentid In (3,4,5) And Exists
 (Select return_date From equipment_checkout)
-Group By player_position, equipment_name, player_l_name, player_f_name
+Group By player_position, equipment_name, player_l_name, player_f_name;
 
 + ------------------- + ------------------ + ------------------ + -------------------- +
 | equipment_name      | player_l_name      | player_f_name      | player_position      |
@@ -134,7 +134,7 @@ from team, donation, sponser
 where team.teamid = donation.team_teamid
 and donation.sponser_sponserid = sponser.sponserid
 and donation_amount >= (select avg(donation_amount) from donation where donation.team_teamid = team.teamid)
-Order by team_name, donation_amount
+Order by team_name, donation_amount;
 
 + -------------- + ---------------- + -------------------- + ----------------- + ----------------- + ----------------- +
 | team_name      | team_mascot      | donation_amount      | donor_f_name      | donor_l_name      | sponsor_name      |
@@ -168,7 +168,7 @@ Where event_type RegExp 'Practice|^Film'
 And Lower(coach_specialty) RegExp 'offensive coordinator'
 And coach_experience RegExp '1|2|3|4|5|6|7'
 Group BY event_date, team_name, teamid, coach_l_name
-Order By event_date
+Order By event_date;
 
 + ----------- + -------------- + ----------------- + --------------- + -------------------------- +
 | teamid      | team_name      | coach_l_name      | event_date      | inexperienced_coaches      |
@@ -188,7 +188,7 @@ From team Join player On teamid = team_teamid Join specific_injury On
 playerid = player_playerid Join injury On injury_injuryid = injuryid
 Where injury_date < '2023-10-19'
 Group By team_name, teamid, player_position, injury_severity, player_dob, playerid
-Order By teamid
+Order By teamid;
 
 + -------------- + ----------- + -------------------- + ------------- + --------------- + -------------------- + -------------------- +
 | team_name      | teamid      | players_injured      | playerid      | player_dob      | player_position      | injury_severity      |
@@ -214,7 +214,7 @@ Where staffid In (Select staff_staffid From team
 Where team_name RegExp 'Atlanta|Jacksonville'
 or
 team_mascot RegExp 'Giants')
-Order By staffid
+Order By staffid;
 
 + ------------ + --------------- +
 | staffid      | staff_name      |
@@ -245,7 +245,7 @@ HAVING COUNT(equipment_checkout.checkoutid) > (
         AND player.playerid = equipment_checkout.player_playerid
         GROUP BY team.teamid
     ) AS calc
-)
+);
 
 + ----------- + -------------- + ---------------- + ------------------------------- +
 | teamid      | team_name      | team_mascot      | NumberOfEquipmentCheckouts      |
@@ -268,7 +268,7 @@ AND sponser.sponserid = donation.sponser_sponserid
 AND sponsor_name regexp 'Verizon|Microsoft|Cisco Systems|Uber Eats'
 GROUP BY team.teamid
 HAVING count(donation_amount) > 1
-ORDER BY CountOfDonations desc
+ORDER BY CountOfDonations desc;
 
 + ----------- + -------------- + ---------------- + --------------------- +
 | teamid      | team_name      | team_mascot      | CountOfDonations      |
@@ -292,7 +292,7 @@ AND equipment_checkout.equipment_equipmentid = equipment.equipmentid
 AND equipment.equipment_name regexp 'Helmet'
 AND equipment_checkout.return_date IS NULL
 AND EXISTS (Select * from equipment_checkout, equipment where equipment_checkout.equipment_equipmentid = equipment.equipmentid)
-ORDER BY checkout_date
+ORDER BY checkout_date;
 
 + ------------------ + ------------------ + -------------- + ---------------- + ------------------ + ------------------------ +
 | player_f_name      | player_l_name      | team_name      | team_mascot      | checkout_date      | player_contact_info      |
