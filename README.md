@@ -1,11 +1,29 @@
-# MIST4610_project1
+# # MIST4610 Project 1 #
+
+# Team Name
+MIST 4610 9:35-10:50 Group 9 
 
 # Team Members
-1. John Hulsey
-2. Jack Mathison
-3. Carson Whitt
-4. Justin Sullivan
-5. Hayes Herzog
+1. John Hulsey | @J-Hulsey
+   
+   REPO: https://github.com/purwplhaze/mist4610_project1
+   
+3. Jack Mathison | @JackMathison
+   
+   REPO: https://github.com/JackMathison/tissue
+   
+5. Carson Whitt | @whittcarson
+
+   REPO: https://github.com/whittcarson/MIST4610GroupProject1
+   
+7. Justin Sullivan | @Justin7ime
+   
+   REPO: https://github.com/Justn7ime/effective-parakeet
+   
+9. Hayes Herzog | @purpwlhaze
+    
+   REPO: https://github.com/purwplhaze/mist4610_project1
+   
 
 # Problem Description
 The task at hand is to model and build a relational database for the general workings of a football team. The central entity in the model is the 'team' entity. The team operates in conjunction with players, staff, coaches in order to track equipment, injuries, events, donations, and rental of facilities. We are interested in modeling these relationships and populating the entities and their attributes with sample data. We are also interested in performing functioning queries on the data so that we can generate reports and build insight about operations within the footaball team.
@@ -56,252 +74,151 @@ Overall, this football team database is designed to comprehensively represent an
 
 ![Screenshot 2023-11-07 at 12 57 54 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/27d93c9d-e4d5-4825-8ff1-4b0307e3dc9b)
 
-![Screenshot 2023-11-07 at 12 58 40 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/b4964f17-dad2-48a4-a9b7-e6046d6494f6)
+<img width="624" alt="Screenshot 2023-11-07 at 2 26 18 PM" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/a4c5ec41-639e-4300-a2a3-5783067db3c8">
 
 ![Screenshot 2023-11-07 at 12 56 15 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/6587a198-e53e-420b-9d81-e57d4b9e70ff)
 
 ![Screenshot 2023-11-07 at 12 56 25 AM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/4b776c94-09cd-4acf-83ec-82a34adbb244)
 
 # Queries
-![Screenshot 2023-11-07 at 10 55 00 PM](https://github.com/purwplhaze/mist4610_project1/assets/148249080/2759845c-2f01-48c7-addb-20b39c08d76a)
 
-Q1.
+**QUERY 1**
+
 Query 1 lists the team name and ID for any team having players out from injuries, specifically those who will be recovering for a time greater than 2 months. The results are also grouped by teams having at least 2 players with long-term injuries.
 
-> Select team_name, teamid 
-From injury Join specific_injury On injuryid = injury_injuryid Join player On 
-    player_playerid = playerid Join team On team_teamid = teamid
-Where injury_severity RegExp "4-6 Months|6-8 Months|6-12 Months"
-Group By team_name, teamid
-Having Count(playerid) >= 2;
+<img width="702" alt="A1" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/233cdba3-0bdf-4b17-bc1f-99ae4ea929b4">
 
-+ -------------- + ----------- +
-| team_name      | teamid      |
-+ -------------- + ----------- +
-| Carolina       | 2           |
-| Tampa Bay      | 4           |
-| Los Angeles    | 7           |
-+ -------------- + ----------- +
-3 rows
 
-This query allows managers to quickly determine how what teams have players benched due to entended injury. During the season, it is crucial to know what key players you might be lacking on your team, and also what other teams are suffering the loss of players. Then coaches can make strategic changes to a game plan. Grouping by teams who have at least 2 players out for an extended time also shows what teams may be more vulnerable with more players injuered.
+This query allows managers to quickly determine how what teams have players benched due to entended injury. During the season, it is crucial to know what key players you might be lacking on your team, and also what other teams are suffering the loss of players. Then coaches can make strategic changes to a game plan. Grouping by teams who have at least 2 players out for an extended time also shows what teams may be more vulnerable with more players injured.
 
-Q2.
+RESULTS
+
+<img width="287" alt="Q1" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/ac2aea6e-30ef-47da-a6e9-c2c8b02e8c26">
+
+**QUERY 2**
+
 Query 2 reports the information regarding renter information when booking an event and that event was a winning game. Results are ordered by descending book date to better organize the information in chronological order.
 
-> Select event_id, renter_name, renter_contact_info, book_date 
-From rental_of_facility Join event On event_id = event_event_id
-Where event_type RegExp 'Game'
-And event_result RegExp 'Win'
-Order By book_date Desc;
+<img width="523" alt="A2" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/7ad050f7-76a1-4d24-9fc5-69abd3ade6f6">
 
-+ ------------- + ---------------- + ------------------------ + -------------- +
-| event_id      | renter_name      | renter_contact_info      | book_date      |
-+ ------------- + ---------------- + ------------------------ + -------------- +
-| 8             | Ulysses Grant    | management@atlfalcons.com | 2023-10-26     |
-| 2             | John Adams       | management@nolasaints.com | 2023-10-15     |
-+ ------------- + ---------------- + ------------------------ + -------------- +
-2 rows
 
 Query 2 is helpful in allowing a manager access to information regarding the renter of a facility. It also allows the manager to pinpoint groups of information by detailing the event type and event result. Having previous renters' information can reduce the trouble of reaching out to a renter should problems arise during the event.
 
-Q3.
+RESULTS
+
+<img width="661" alt="Q2" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/bf2fe28a-275d-47a4-8081-5023848c6c0c">
+
+**QUERY 3**
+
 Query 3 retrieves information about about what players have checked out certain equipment items and have since returned the item.
 
-> Select equipment_name, player_l_name, player_f_name, player_position 
-From equipment Join equipment_checkout On equipmentid = equipment_equipmentid 
-Join player On player_playerid = playerid
-Where equipment_equipmentid In (3,4,5) And Exists
-(Select return_date From equipment_checkout)
-Group By player_position, equipment_name, player_l_name, player_f_name;
+<img width="631" alt="A3" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/8b8feb81-769e-41b8-88a3-118b96adc47a">
 
-+ ------------------- + ------------------ + ------------------ + -------------------- +
-| equipment_name      | player_l_name      | player_f_name      | player_position      |
-+ ------------------- + ------------------ + ------------------ + -------------------- +
-| Jersey              | Davis              | Tae                | Linebacker           |
-| Jersey              | Montana            | Joe                | Quarter Back         |
-| Cleats              | Jefferson          | Van                | Wide Receiver        |
-+ ------------------- + ------------------ + ------------------ + -------------------- +
-3 rows
 
 Keeping track of equipment inventory is a big job for a team. Query 3 provides easy access to listings of players who have returned their items, subsequently allowing someone to know what items are still checked out. The query will also reveal trends to teams about which players keep items the longest and what items are most commonly checked out.
 
-Q4.
+RESULTS
+
+<img width="819" alt="Q3" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/2b4ebe3c-8991-4194-a1f5-90b66b43898d">
+
+**QUERY 4**
+
 This query reports donations, by team, that have a value greater than the average donation value for their team.
 
-> Select team_name, team_mascot, donation_amount, donor_f_name, donor_l_name, sponsor_name
-from team, donation, sponser
-where team.teamid = donation.team_teamid
-and donation.sponser_sponserid = sponser.sponserid
-and donation_amount >= (select avg(donation_amount) from donation where donation.team_teamid = team.teamid)
-Order by team_name, donation_amount;
+<img width="877" alt="A4" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/30de6306-c7c8-4d0b-937d-89e0d65f90cb">
 
-+ -------------- + ---------------- + -------------------- + ----------------- + ----------------- + ----------------- +
-| team_name      | team_mascot      | donation_amount      | donor_f_name      | donor_l_name      | sponsor_name      |
-+ -------------- + ---------------- + -------------------- + ----------------- + ----------------- + ----------------- +
-| Atlanta        | Falcons          | 400000               | Cedric            | Daniels           | Uber Eats         |
-| Atlanta        | Falcons          | 420000               | Omar              | Little            | Subway            |
-| Atlanta        | Falcons          | 760000               | Paulie            | Galiteri          | Visa              |
-| Atlanta        | Falcons          | 800000               | Cedric            | Daniels           | Uber Eats         |
-| Carolina       | Panthers         | 1000000              | Logan             | Roy               | Cisco Systems     |
-| Carolina       | Panthers         | 2500000              | Logan             | Roy               | Cisco Systems     |
-| Detroit        | Lions            | 1000000              | James             | McNulty           | Visa              |
-| Jacksonville   | Jaguars          | 900                  | Jay               | Landsman          | DraftKings        |
-| Los Angeles    | Rams             | 6969                 | Roman             | Roy               | Cisco Systems     |
-| Los Angeles    | Chargers         | 9900                 | Carmela           | Soprano           | Gatorade          |
-| New Orleans    | Saints           | 1600000              | Corrado           | Soprano           | Gatorade          |
-| New York       | Giants           | 150000               | Corrado           | Soprano           | Gatorade          |
-| New York       | Jets             | 8000                 | Josh              | Lyman             | Verizon           |
-| Tampa Bay      | Buccaneers       | 6000000              | Tony              | Soprano           | Gatorade          |
-+ -------------- + ---------------- + -------------------- + ----------------- + ----------------- + ----------------- +
-14 rows
 
 It is important for teams and sponsors to keep track of the flow of donations and where those donations are coming from. By understanding which donors on each team are generally gifting more money, financial linguistics officials will have more concrete reasoning to pursue certain people versus others when looking to fundraise.
 
-Q5.
+RESULTS
+
+<img width="970" alt="Q4" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/743c3679-9837-4fcf-82ac-76b58518ac58">
+
+**QUERY 5**
+
 This query selects teams who have rented a facility for the purpose of practicing or watching film from a previous game, but who also have an offensive coordinator with less than 8 years of experience. The results are ordered by the correlating event date.
 
-> Select teamid, team_name, coach_l_name, event_date, Count(teamid) As inexperienced_coaches 
-From event Join rental_of_facility On event_id = event_event_id Join team On 
-rental_of_facility.team_teamid = teamid Join coaches On teamid = coaches.team_teamid
-Where event_type RegExp 'Practice|^Film'
-And Lower(coach_specialty) RegExp 'offensive coordinator'
-And coach_experience RegExp '1|2|3|4|5|6|7'
-Group BY event_date, team_name, teamid, coach_l_name
-Order By event_date;
+<img width="774" alt="A5" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/220821cc-d582-4d46-82f0-e9874c5e8704">
 
-+ ----------- + -------------- + ----------------- + --------------- + -------------------------- +
-| teamid      | team_name      | coach_l_name      | event_date      | inexperienced_coaches      |
-+ ----------- + -------------- + ----------------- + --------------- + -------------------------- +
-| 4           | Tampa Bay      | Canales           | 2023-10-24      | 1                          |
-+ ----------- + -------------- + ----------------- + --------------- + -------------------------- +
-1 rows
 
 Query 5 allows a person to see when teams are training and how they split that time between practice and film review. The results also show teams where they stand with total experience among coaches. A team may use this information and gain more confidence in its possibilities or cause it to think about hiring new coaching staff to balance the skill set.
 
-Q6.
-Query 6 identifies how many injured players a team had before a specified date, and lists the injured players’ ID, date of birth, position, and the severity of the injury. Results are ordered by ascending teamID.
+RESULTS
 
-> Select team_name, teamid, Count(Distinct playerid) As players_injured, 
-playerid, player_dob, player_position, injury_severity
-From team Join player On teamid = team_teamid Join specific_injury On 
-playerid = player_playerid Join injury On injury_injuryid = injuryid
-Where injury_date < '2023-10-19'
-Group By team_name, teamid, player_position, injury_severity, player_dob, playerid
-Order By teamid;
+<img width="804" alt="Q5" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/c3b65011-8e46-4ff0-9a5e-83c35ace73c5">
 
-+ -------------- + ----------- + -------------------- + ------------- + --------------- + -------------------- + -------------------- +
-| team_name      | teamid      | players_injured      | playerid      | player_dob      | player_position      | injury_severity      |
-+ -------------- + ----------- + -------------------- + ------------- + --------------- + -------------------- + -------------------- +
-| Atlanta        | 1           | 1                    | 1             | 1997-12-13      | Safety               | 4-6 Months           |
-| Carolina       | 2           | 1                    | 6             | 1996-03-30      | Linebacker           | 6-12 Months          |
-| Carolina       | 2           | 1                    | 5             | 2000-05-11      | Offensive Line       | 1-3 Weeks            |
-| Carolina       | 2           | 1                    | 5             | 2000-05-11      | Offensive Line       | 6-8 Months           |
-| New Orleans    | 3           | 1                    | 8             | 2000-09-01      | Tight End            | 2-4 Weeks            |
-| Tampa Bay      | 4           | 1                    | 10            | 2001-11-06      | Defensive Line       | 1-2 Months           |
-| Tampa Bay      | 4           | 1                    | 12            | 1998-12-27      | Offensive Line       | 1-2 Months           |
-| New York       | 5           | 1                    | 13            | 1994-01-12      | Wide Receiver        | 4-6 Months           |
-+ -------------- + ----------- + -------------------- + ------------- + --------------- + -------------------- + -------------------- +
-8 rows
+**QUERY 6**
+
+Query 6 identifies how many injured players a team had before a specified date, and lists the injured players’ ID, date of birth, position, and the severity of the injury. Results are ordered by ascending teamID.    
+
+<img width="806" alt="A6" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/4df20172-34ea-4669-b575-010fcdd8f9c7">
+
 
 Query 6 becomes valuable to a team and coaches by creating a way of determining what players were hurt before a specific date alongside information about the severity of the injury in order to make an estimate on how much longer a specific player might be hurt.
 
-Q7.
+RESULTS
+
+<img width="1105" alt="Q6" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/087e70ca-39b4-413a-a24f-5611bfc9f4a5">
+
+**QUERY 7**
+
 This query lists the staffID and name of staff members working for certain teams by relating the team’s name or mascot.
 
-> Select staffid, staff_name From staff 
-Where staffid In (Select staff_staffid From team
-Where team_name RegExp 'Atlanta|Jacksonville'
-or
-team_mascot RegExp 'Giants')
-Order By staffid;
+<img width="440" alt="A7" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/798518df-78e9-427d-a37b-fa000e57d12e">
 
-+ ------------ + --------------- +
-| staffid      | staff_name      |
-+ ------------ + --------------- +
-| 55           | Alex Kemp       |
-| 97           | Tom Hill        |
-| 117          | John Jenkins    |
-| NULL         | NULL            |
-+ ------------ + --------------- +
-4 rows
 
 Team managers will use query 7 to track which staff members are working under which teams. The staff work with many teams and managers may use this information to increase organization and the ease of identifying staff members under a range of teams.
 
-Q8.
-This query identifies football teams that have an above-average frequency of equipment checkouts. It counts how many times equipment has been checked out for each team, presenting this number alongside the team’s ID, name, and mascot. The teams included in the results are those where the count of equipment checkouts per team is greater than the average number of checkouts across all teams.
 
-> SELECT team.teamid, team.team_name, team.team_mascot, COUNT(equipment_checkout.checkoutid) as NumberOfEquipmentCheckouts
-FROM team, player, equipment_checkout
-WHERE team.teamid = player.team_teamid
-AND player.playerid = equipment_checkout.player_playerid
-GROUP BY team.teamid, team.team_name, team.team_mascot
-HAVING COUNT(equipment_checkout.checkoutid) > (
-    SELECT AVG(NumberOfEquipmentCheckouts)
-    FROM (
-        SELECT team.teamid, COUNT(equipment_checkout.checkoutid) as NumberOfEquipmentCheckouts
-        FROM team, player, equipment_checkout
-        WHERE team.teamid = player.team_teamid
-        AND player.playerid = equipment_checkout.player_playerid
-        GROUP BY team.teamid
-    ) AS calc
-);
+RESULTS
 
-+ ----------- + -------------- + ---------------- + ------------------------------- +
-| teamid      | team_name      | team_mascot      | NumberOfEquipmentCheckouts      |
-+ ----------- + -------------- + ---------------- + ------------------------------- +
-| 3           | New Orleans    | Saints           | 5                               |
-| 4           | Tampa Bay      | Buccaneers       | 4                               |
-| 9           | Detroit        | Lions            | 3                               |
-+ ----------- + -------------- + ---------------- + ------------------------------- +
-3 rows
+<img width="320" alt="Q7" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/9a66e624-895b-4492-bf05-f07dfebd18e5">
+
+**QUERY 8**
+
+The query identifies football teams that have an above-average frequency of equipment checkouts. It counts how many times equipment has been checked out for each team, presenting this number alongside the team’s ID, name, and mascot. The teams included in the results are those where the count of equipment checkouts per team is greater than the average number of checkouts across all teams.
+
+<img width="961" alt="A8" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/7ac4b21a-ff59-4a59-b165-45e200b12df5">
+
 
 For a football team manager, this information is crucial for inventory management. Teams with high equipment checkout rates may have higher wear and tear on gear, indicating a potential need for more frequent replacements or the purchase of additional equipment to meet demand.
 
-Q9.
-This query tallies the number of donations made to football teams from sponsors identified as tech companies—specifically Verizon, Microsoft, Cisco Systems, and Uber Eats. It shows each team's ID, name, and mascot, along with the total number of donations received, only including teams that have received more than one donation. The results are sorted in descending order of the number of donations.
 
-> SELECT team.teamid, team.team_name, team_mascot, count(donation_amount) as CountOfDonations
-FROM team, donation, sponser
-WHERE team.teamid = donation.team_teamid
-AND sponser.sponserid = donation.sponser_sponserid
-AND sponsor_name regexp 'Verizon|Microsoft|Cisco Systems|Uber Eats'
-GROUP BY team.teamid
-HAVING count(donation_amount) > 1
-ORDER BY CountOfDonations desc;
 
-+ ----------- + -------------- + ---------------- + --------------------- +
-| teamid      | team_name      | team_mascot      | CountOfDonations      |
-+ ----------- + -------------- + ---------------- + --------------------- +
-| 2           | Carolina       | Panthers         | 5                     |
-| 1           | Atlanta        | Falcons          | 3                     |
-| 3           | New Orleans    | Saints           | 2                     |
-+ ----------- + -------------- + ---------------- + --------------------- +
-3 rows
+RESULTS
+
+<img width="715" alt="Q8" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/86428e07-a18e-4d52-b885-6dfb2c2c61fc">
+
+**QUERY 9**
+
+The query tallies the number of donations made to football teams from sponsors identified as tech companies—specifically Verizon, Microsoft, Cisco Systems, and Uber Eats. It shows each team's ID, name, and mascot, along with the total number of donations received, only including teams that have received more than one donation. The results are sorted in descending order of the number of donations.
+
+<img width="763" alt="A9" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/2bad3075-fad9-411c-be69-93dafbae3685">
 
 From a team manager's standpoint, this query is useful for recognizing and prioritizing relationships with key sponsors. By understanding which tech companies are most supportive, the manager can focus on nurturing these partnerships, allocating appropriate recognition and engagement efforts to maintain and possibly increase their support.
 
-Q10.
-This query retrieves details of players who have borrowed helmets from their football team and have not returned them. It connects player and equipment records, focusing on unreturned helmets by checking for a null return date and lists them along with player and team details, sorting by the date the helmets were borrowed.
 
-> SELECT player_f_name, player_l_name, team_name, team_mascot, checkout_date, player_contact_info
-FROM team, player, equipment_checkout, equipment
-WHERE team.teamid = player.team_teamid
-AND player.playerid = equipment_checkout.player_playerid
-AND equipment_checkout.equipment_equipmentid = equipment.equipmentid
-AND equipment.equipment_name regexp 'Helmet'
-AND equipment_checkout.return_date IS NULL
-AND EXISTS (Select * from equipment_checkout, equipment where equipment_checkout.equipment_equipmentid = equipment.equipmentid)
-ORDER BY checkout_date;
+RESULTS
 
-+ ------------------ + ------------------ + -------------- + ---------------- + ------------------ + ------------------------ +
-| player_f_name      | player_l_name      | team_name      | team_mascot      | checkout_date      | player_contact_info      |
-+ ------------------ + ------------------ + -------------- + ---------------- + ------------------ + ------------------------ +
-| Scotty             | Miller             | Los Angeles    | Chargers         | 2023-10-21         | ScottMiller@gmail.com    |
-| Bijan              | Robinson           | Los Angeles    | Rams             | 2023-10-26         | Franchiseonmyback@gmail.com |
-| Mack               | Hollins            | New York       | Giants           | 2023-10-31         | MackenzieHollins@gmail.com |
-+ ------------------ + ------------------ + -------------- + ---------------- + ------------------ + ------------------------ +
-3 rows
+<img width="626" alt="Q9" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/17e45704-8199-45ef-99c6-9b91ed55103b">
+
+**QUERY 10**
+
+The query retrieves details of players who have borrowed helmets from their football team and have not returned them. It connects player and equipment records, focusing on unreturned helmets by checking for a null return date and lists them along with player and team details, sorting by the date the helmets were borrowed.
+
+<img width="930" alt="A10" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/d3ca6649-f413-4874-8abb-8eca499fd43b">
 
 For a football team manager, this query helps manage equipment efficiently, ensuring helmets are returned on time for use by other players and maintaining safety standards by keeping track of gear usage.
 
+
+
+RESULTS
+<img width="1025" alt="Q10" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/a4dec95a-38aa-4a73-9333-73482341a26d">
+
+# Query Features
+
+<img width="694" alt="DatabaseInfo" src="https://github.com/whittcarson/MIST4610GroupProject1/assets/131502055/e4976440-2dc9-44be-8382-6e666b71be71">
+
+
+# Database Information
+Name of the database: cs_g9p1
